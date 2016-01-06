@@ -1,0 +1,41 @@
+.action-header {
+  background-color: #444;
+  padding: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.action-header img {
+  max-width: 200px;
+  min-height: 115px;
+  margin-left: -15px;
+  padding: 25px 0 20px 0;
+}
+
+.action-info p {
+  color: #697072;
+}
+
+.action-info div {
+  padding: 5px;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.action-info icon {
+  color: color(primary);
+  width: 20px;
+}
+
+.ios .action-info {
+  text-align: center;
+}
+
+.ios .action-info div {
+  display: inline-block;
+}
+
+.ios .action-info icon {
+  width: auto;
+  margin-right: 10px;
+}
