@@ -10,7 +10,7 @@ import {Http} from "angular2/http";
   // directives: [DateFormat],
   // pipes: [ConvertDate]
 })
-export class Action {
+export class Act {
   constructor(dataService: DataService) {
     this.conferenceInfo = dataService.getData();
   }

@@ -1,7 +1,7 @@
 import {NavController, Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
-import {Action} from '../action/action';
-import {Media} from '../media/media';
+import {Act} from '../action/action';
+import {Learn} from '../media/media';
 import {Home} from '../home/home';
 import {News} from '../news/news';
 
@@ -14,8 +14,8 @@ export class Tabs {
     // set the root pages for each tab
     this.tab1Root = Home;
     this.tab2Root = News;
-    this.tab3Root = Media;
-    this.tab4Root = Action;
+    this.tab3Root = Learn;
+    this.tab4Root = Act;
 
     // retrieve the conference data
     dataService.retrieveData();

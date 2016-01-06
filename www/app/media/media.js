@@ -7,7 +7,7 @@ import './media.scss';
   templateUrl: 'app/media/media.html',
   directives: [SearchBar]
 })
-export class Media {
+export class Learn {
   constructor(nav: NavController, dataService: DataService) {
     this.nav = nav;
     this.dataService = dataService;
