@@ -1,56 +1,43 @@
-import {DBService} 'db.service';
+import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
+import {Injectable, bind} from 'angular2/angular2';
+import {Http} from 'angular2/http';
 
-var SCService = function(DBService){
-  var soundCloud = {};
-
-
-export class SCService
-  constructor(dbService:DBService){
-    this.soundCloud = [];
-    
+@Injectable()
+export class SoundcloudService {
+  constructor(app: IonicApp, http: Http) {
+    this.app = app;
+    this.http = http;
+    this.soundcloud = null;
   }
-  
-  var rawSCData = [];
-  
-  // Reformat any data for usage
-  scCleaner(jsonArr, cleanDataArr) {
-    // angular.copy(jsonArr, cleanDataArr);
-    jsonArr.forEach(function(obj){      
-      obj.user.permalink_url = obj.user.permalink_url.replace('http', 'https');
-      obj.created_at = obj.created_at.replace(/\//g, '-');
-      obj.created_at = obj.created_at.slice(0, 10);
 
-      cleanDataArr.push(obj);
+  retrieveData() {
+    //Under the hood we are using Angular http service.
+    //This defaults to use the HTTP_BINDING for http requests.
+    //Here, we're going to get a JSON data file, use the `map` call to parse json
+    // and finally subscribe to the observable and set our data
+    //to the value it provides once the http request is complete.
+    
+    //////////////// SHORTENED SOUNDCLOUD DATA /////////////////
+    // this.http.get('app/data/soundcloud.json')
+    //   .map(res => res.json())
+    //   .subscribe(data => {
+    //     console.log("Data object from soundcloud", data);
+    //     this.soundcloud = data;
+    // });
+
+
+    /////////////// LONGFORM SOUNDCLOUD DATA ///////////////////
+    this.http.get('app/data/soundcloud2.json')
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("Data object from soundcloud", data);
+        this.soundcloud = data;
     });
-  };
+  }
 
-  // Normalizes the data for our media collection
-  soundCloud.scNormalize = function (dest) {
-    rawSCData.forEach(function(scObj){
-      dest.push({
-        stream_id: scObj.user.permalink_url + '/' + scObj.permalink,
-        title: scObj.title,
-        date: scObj.created_at,
-        thumb: scObj.user.avatar_url,
-        icon: 'ion-android-volume-up'
-      });
-    });
-  };
+  getSoundcloud(){
+     return this.soundcloud;
+  }
 
-  // Call the DB, clean and normalize the data, push into media collection
-  soundCloud.mergeSCData = function (collection) {
-    return  DBService.getViewModel('media')
-            .then(function (media){
-              soundCloud.scCleaner(media.soundcloud, rawSCData);   
-            })
-            .then(function () {
-              soundCloud.scNormalize(collection);
-              console.log('Soundcloud, $scope.allMedia.length: ', collection.length);
-            });
-  };
-
-
-  return soundCloud;
-};
-
-module.exports = SCService;
+  
+}

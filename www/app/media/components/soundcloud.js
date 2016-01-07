@@ -1,5 +1,6 @@
 import {Component} from 'angular2/angular2';
 import {DataService} from '../../service/data';
+import {SoundcloudService} from '../../common/services/soundcloud.service';
 
 
 @Component({
@@ -17,16 +18,19 @@ import {DataService} from '../../service/data';
     </ion-card-content>
   </ion-card>`,
   
-  inputs: ['soundcloud']
+  inputs: ['soundcloud'],
+  providers: [SoundcloudService]
 })
 export class SoundcloudComponent {
-  constructor(dataService: DataService) {
+  constructor(dataService: DataService, sCloudService: SoundcloudService) {
     this.dataService = dataService;
+    this.sCloudService = sCloudService;
     this.soundcloud = null;
   }
 
   onInit() {
-    console.log(DataService);
+    console.log(this.dataService);
+    console.log(this.sCloudService);
     this.soundcloud = this.dataService.getSoundcloud(); 
   }
   
