@@ -1,30 +1,61 @@
-
 <ion-navbar *navbar>
-  <ion-title>Media</ion-title>
+  <ion-title>Learn</ion-title>
 </ion-navbar>
 <ion-toolbar light>
-  <ion-searchbar primary [(ng-model)]="searchQuery" show-cancel="true" placeholder="Search"></ion-searchbar>
+  <!-- Make sure to fix this -->
+  <ion-searchbar primary [(ng-model)]="searchQuery" show-cancel="true" placeholder="Search"></ion-searchbar> 
 </ion-toolbar>
 <ion-content>
-  <ion-card *ng-for="#stream of soundcloud" class="scstream">
+  
+  <ion-card>
     <ion-card-content>
       <ion-list>
-        <ion-header (click)="playMedia">
-          Soundcloud Stream
-        </ion-header>
-
-        <!-- In order to set inappbrowser options links must not be anchr tags -->
-        <!-- <button ion-item (click)="playMedia(stream)"><a  href="{{stream.source}}">{{ stream.title }}</a></button> -->
-
-        <button ion-item (click)="playMedia(stream)">{{ stream.title }}</button>
+      <ion-item href="#"> 
+        <icon name="share"></icon>
+        <h5>2/24</h5>
+        <div>
+        <h1>Cousin Syl & Financial Advisor Harry Harris on life insurance do's & don'ts</h1>
+        <h5>The Karen Hunter Show teaches the keys to entrepreneurial success in the industries of sports, politics, entertainment and so much more, directly from the celebrities and civilians who have personally created brands from the ground up. Hear the Karen Hunter Show on SiriusXM Urban View on-demand, channel 126 www.siriusxm.com/ondemand. Follow Karen Hunter at twitter.com/karenhunter</h5>  
+        </div>
+        <img  src="https://w1.sndcdn.com/f826XAK2LAZY_m.png">
+      </ion-item> 
+        
         
       </ion-list>
     </ion-card-content>
   </ion-card>
+
+  <!-- <soundcloud></soundcloud> -->
 </ion-content>
+ 
+  <!-- //////////////////////////////////////////////// -->
+
+ <!--  <ion-card *ng-for="#stream of soundcloud" class="scstream">
+    <ion-card-content>
+      <ion-list>
+        <ion-header (click)="playMedia">
+          Soundcloud Stream
+        </ion-header> -->
+
+        <!-- In order to set inappbrowser options links must not be anchr tags -->
+        <!-- <button ion-item (click)="playMedia(stream)"><a  href="{{stream.source}}">{{ stream.title }}</a></button> -->
+
+        <!-- <button ion-item (click)="playMedia(stream)">{{ stream.title }}</button>
+        
+      </ion-list>
+    </ion-card-content>
+  </ion-card> -->
+
+<!-- /////////////////////////////////////////// -->
+
     <!-- <h2>This is the Media view</h2> -->
     <!-- <div class="list card">
       <div ng-repeat="stream in allMedia | orderBy: '-date'" on-tap="playMedia()" class=" .md-caption item item-icon-left">
         <i class="icon {{ stream.icon }}"></i>{{ stream.title }}
       </div> 
     </div> -->
+        
+<!-- //////////////////////////////////// -->
+
+        <!-- In order to set inappbrowser options links must not be anchr tags -->
+        <!-- <button ion-item (click)="playMedia(stream)"><a  href="{{stream.source}}">{{ stream.title }}</a></button> -->

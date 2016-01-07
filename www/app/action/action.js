@@ -14,4 +14,6 @@ export class Act {
   constructor(dataService: DataService) {
     this.conferenceInfo = dataService.getData();
   }
+
+
 }

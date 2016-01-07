@@ -1,4 +1,5 @@
 import {DBService} 'db.service'
+
 var SCService = function(DBService){
   var soundCloud = {};
 

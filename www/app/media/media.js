@@ -1,11 +1,12 @@
 import {NavController, Page, SearchBar} from 'ionic/ionic';
 import {DataService} from '../service/data';
+import {SoundcloudComponent} from './components/soundcloud';
 // import {InAppBrowser} from '/../../plugins/cordova-plugin-inappbrowser/src/browser';
 import './media.scss';
 
 @Page({
   templateUrl: 'app/media/media.html',
-  directives: [SearchBar]
+  directives: [SearchBar, SoundcloudComponent]
 })
 export class Learn {
   constructor(nav: NavController, dataService: DataService) {
